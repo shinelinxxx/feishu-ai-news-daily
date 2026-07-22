@@ -1,0 +1,13 @@
+{
+  "name": "feishu-ai-news-daily",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "push:ai-news": "node work/ai_news_feishu_push.mjs",
+    "test:feishu": "node work/ai_news_feishu_push.mjs --test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

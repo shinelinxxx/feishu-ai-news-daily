@@ -1,0 +1,27 @@
+name: Feishu AI News Daily
+
+on:
+  schedule:
+    # 09:00 Asia/Shanghai equals 01:00 UTC.
+    - cron: "0 1 * * *"
+  workflow_dispatch:
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Push AI news to Feishu
+        env:
+          FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
+          FEISHU_SIGN_SECRET: ${{ secrets.FEISHU_SIGN_SECRET }}
+          MAX_ITEMS: "8"
+        run: npm run push:ai-news
