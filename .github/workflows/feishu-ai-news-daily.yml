@@ -2,7 +2,7 @@ name: Feishu AI News Daily
 
 on:
   schedule:
-    # 09:00 Asia/Shanghai equals 01:00 UTC.
+    # 09:07 Asia/Shanghai equals 01:07 UTC.
     - cron: "7 1 * * *"
   workflow_dispatch:
 
